@@ -1,11 +1,27 @@
 # vue-use-wasm
 
-- pnpm dev 开发环境正常
+- 使用wasm-pack publish发布到 npm上
 
-- pnpm build 可以成功打包
+```shell
+# cd hello-wasm
 
-- 无法正常访问，报错
+wasm-pack publish
+```
 
-- 考虑将wasm，使用wasm-pack publish发布到 npm上在引入
+- 引入
 
-> 失败的案例
+```shell
+pnpm add test-wasm-tool
+```
+
+- 使用
+
+```js
+import { to_string, add } from 'test-wasm-tool'
+
+console.log(to_string(5) + to_string(1))
+
+console.log(add(1, 2))
+
+```
+
